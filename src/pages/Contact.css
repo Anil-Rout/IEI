@@ -1,0 +1,55 @@
+/* Contact Page */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-grid h2 {
+  font-size: 1.5rem;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.contact-grid p {
+  color: #4b5563;
+}
+
+.contact-grid label {
+  display: block;
+  color: #4b5563;
+  margin-bottom: 5px;
+}
+
+.contact-grid input,
+.contact-grid textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.contact-grid textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-grid .btn {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-grid .btn:hover {
+  background-color: #1e40af;
+}

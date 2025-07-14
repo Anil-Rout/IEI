@@ -1,0 +1,205 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+        }
+ 
+.navbar .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo {
+  height: 40px;
+  margin-right: 15px;
+}
+
+ 
+
+
+.sign-in-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        .sign-in-container SignInButton {
+            padding: 8px 12px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .sign-in-container a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .sign-in-container a:hover {
+            color: #021bfc;
+        }
+
+
+
+.nav-menu {
+            margin-left: auto;
+        }
+
+.nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+}
+
+.nav-links li {
+            display: inline-block;
+        }
+
+ .nav-links a {
+            display: inline-block;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+.btn-primary {
+            border: 1px solid #000;
+            color: #fff;
+            background-color: #ff8200;
+        }
+
+.btn-primary:hover {
+            background-color: #e67500;
+        }
+
+.btn-secondary {
+            border: 1px solid #d82f0d;
+            color: #fff;
+            background-color: #0dbdd8;
+        }
+
+.btn-secondary:hover {
+            background-color: #0aa1b8;
+        }
+
+.btn-election {
+            border: 1px solid #cff051;
+            color: #fff;
+            background-color: #d80d45;
+        }
+
+.btn-election:hover {
+            background-color: #b80b3a;
+        }
+
+.btn-result {
+            border: 1px solid #cff051;
+            color: #fff;
+            background-color: #038a3f;
+        }
+
+.btn-result:hover {
+            background-color: #027a34;
+        }
+
+.btn-custom {
+            border: 1px solid #000;
+            color: #fff;
+            background-color: #395563;
+        }
+
+.btn-custom:hover {
+            background-color: #2e4550;
+        }
+
+.nav-links a i {
+            margin-right: 5px;
+        }
+
+.contact-us a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+.contact-us a:hover {
+            color: #021bfc;
+        }
+
+.secondary-nav {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+        }
+
+.secondary-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+.secondary-nav li {
+            display: inline-block;
+        }
+
+.secondary-nav a {
+            color: #333;
+            font-size: 14px;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+.secondary-nav a:hover {
+            color: #3700ff;
+        }
+
+.secondary-nav a.active {
+            color: #0479ff;
+            font-weight: bold;
+            border-bottom: 2px solid #000000;
+        }
+
+@media (max-width: 767px) {
+            .hidden-xs {
+                display: none;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-menu {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .secondary-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }

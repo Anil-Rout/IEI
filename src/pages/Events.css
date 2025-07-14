@@ -1,0 +1,17 @@
+.event-card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.event-card h2 {
+  font-size: 1.25rem;
+  color: #1e3a8a;
+  margin-bottom: 5px;
+}
+
+.event-card p {
+  color: #4b5563;
+}
