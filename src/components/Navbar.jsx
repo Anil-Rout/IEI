@@ -87,10 +87,10 @@ function  Navbar() {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/about"
+                                    to="/Academics"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
                                 >
-                                    About
+                                    Academics
                                 </NavLink>
                             </li>
                             <li>
@@ -119,7 +119,7 @@ function  Navbar() {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/"
+                                    to="/MemberShip"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
                                 >
                                     MemberShip
@@ -127,7 +127,7 @@ function  Navbar() {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/"
+                                    to="/Certification"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
                                 >
                                     Certification

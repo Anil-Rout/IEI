@@ -1,0 +1,83 @@
+.certification-hero {
+      padding: 3rem 0;
+      background-color: #f9fafb; /* gray-100 */
+      text-align: center;
+    }
+    .certification-hero h1 {
+      font-size: 2.25rem; /* text-4xl */
+      font-weight: 700; /* font-bold */
+      color: #1e3a8a; /* blue-900 */
+      margin-bottom: 1rem;
+    }
+    .certification-hero p {
+      color: #4b5563; /* gray-700 */
+      font-size: 1.125rem; /* text-lg */
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+    .certification-types {
+      padding: 3rem 0;
+      background-color: #fff;
+      text-align: center;
+    }
+    .certification-types h2 {
+      font-size: 2rem; /* text-3xl */
+      font-weight: 700; /* font-bold */
+      color: #1e3a8a; /* blue-900 */
+      margin-bottom: 2rem;
+    }
+    .certification-card {
+      background-color: #f9fafb; /* gray-100 */
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 800px;
+      border-radius: 0.5rem; /* rounded-lg */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+    }
+    .certification-card h3 {
+      font-size: 1.5rem; /* text-2xl */
+      font-weight: 600; /* font-semibold */
+      color: #1e3a8a; /* blue-900 */
+      margin-bottom: 0.5rem;
+    }
+    .certification-card p {
+      color: #4b5563; /* gray-700 */
+      font-size: 1rem; /* text-base */
+      line-height: 1.5;
+    }
+    .certification-benefits {
+      padding: 3rem 0;
+      background-color: #f9fafb; /* gray-100 */
+      text-align: center;
+    }
+    .certification-benefits h2 {
+      font-size: 2rem; /* text-3xl */
+      font-weight: 700; /* font-bold */
+      color: #1e3a8a; /* blue-900 */
+      margin-bottom: 2rem;
+    }
+    .certification-benefits ul {
+      list-style: disc;
+      color: #4b5563; /* gray-700 */
+      font-size: 1rem; /* text-base */
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .certification-benefits li {
+      margin-bottom: 0.5rem;
+    }
+    .certification-hero button {
+      background-color: #1e3a8a; /* blue-900 */
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem; /* rounded-lg */
+      border: none;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .certification-hero button:hover {
+      background-color: #1e40af; /* blue-800 */
+    }

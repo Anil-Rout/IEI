@@ -2,7 +2,7 @@ import './Events.css';
 function Events() {
   return (
     <div className="container page">
-      <h1>Events</h1>
+      <h1> <strong>Events</strong></h1>
       <div className="event-card">
         <h2>Annual Engineering Conference</h2>
         <p>Date: December 2025 | Location: Kolkata</p>

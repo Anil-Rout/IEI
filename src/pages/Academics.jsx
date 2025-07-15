@@ -1,7 +1,8 @@
-function About() {
+
+export default function Academics() {
   return (
     <div className="container page">
-      <h1>About Us</h1>
+      <h1><b>Academics</b></h1>
       <p>
         The Institution of Engineers (India) [IEI] is a statutory body established in 1920
         and incorporated by Royal Charter in 1935. It is the largest multi-disciplinary
@@ -15,5 +16,4 @@ function About() {
     </div>
   );
 }
-
-export default About;
+ 

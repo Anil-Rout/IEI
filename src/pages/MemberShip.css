@@ -1,0 +1,55 @@
+.Benifits-to-member {
+      padding: 3rem 0;
+      background-color: #f9fafb; /* gray-100 */
+      text-align: center;
+    }
+    .Benifits-to-member h1 {
+      font-size: 2.25rem; /* text-4xl */
+      font-weight: 700; /* font-bold */
+      color: #1e3a8a; /* blue-900 */
+      margin-bottom: 2rem;
+    }
+    .Benifits {
+      background-color: #fff;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 800px;
+      border-radius: 0.5rem; /* rounded-lg */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+    }
+    .Benifits h2 {
+      font-size: 1.5rem; /* text-2xl */
+      font-weight: 600; /* font-semibold */
+      color: #1e3a8a; /* blue-900 */
+      margin-bottom: 0.5rem;
+    }
+    .Benifits p {
+      color: #4b5563; /* gray-700 */
+      font-size: 1rem; /* text-base */
+      line-height: 1.5;
+    }
+    .Grades-of-Membership {
+      padding: 3rem 0;
+      background-color: #fff;
+      text-align: center;
+    }
+    .Grades-of-Membership h1 {
+      font-size: 2.25rem; /* text-4xl */
+      font-weight: 700; /* font-bold */
+      color: #1e3a8a; /* blue-900 */
+      margin-bottom: 2rem;
+    }
+    .Grades-of-Membership button {
+      background-color: #1e3a8a; /* blue-900 */
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem; /* rounded-lg */
+      border: none;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .Grades-of-Membership button:hover {
+      background-color: #1e40af; /* blue-800 */
+    }
