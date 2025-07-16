@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
-import logo from '/Abstract.png';
+import logo from '/iei_Logo.jpg';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
  
 
