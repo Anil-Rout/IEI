@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import logo from '/iei_Logo.jpg';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function  Navbar() {
             return (
@@ -23,7 +24,7 @@ function  Navbar() {
                             <ul className="nav-links">
                                 <li>
                                     <a className="btn btn-primary" href="IEI-RegistrationForMembApp.aspx" target="_self">
-                                        <i className="fa fa-group"></i> Be a Member
+                                        <i class="fas fa-user-plus"></i> Be a Member
                                     </a>
                                 </li>
                                 <li>
@@ -80,15 +81,14 @@ function  Navbar() {
                                 <NavLink
                                     to="/"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
-                                >
-                                    Home
+                                ><i className="fa fa-home"></i>Home
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink
                                     to="/Academics"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
-                                >
+                                ><i className="fa fa-graduation-cap"></i>
                                     Academics
                                 </NavLink>
                             </li>
@@ -96,7 +96,7 @@ function  Navbar() {
                                 <NavLink
                                     to="/services"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
-                                >
+                                ><i className="fa fa-cogs"></i>
                                     Services
                                 </NavLink>
                             </li>
@@ -104,7 +104,7 @@ function  Navbar() {
                                 <NavLink
                                     to="/events"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
-                                >
+                                ><i className="fa fa-calendar"></i>
                                     Events
                                 </NavLink>
                             </li>
@@ -112,7 +112,7 @@ function  Navbar() {
                                 <NavLink
                                     to="/contact"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
-                                >
+                                ><i className="fa fa-envelope"></i>
                                     Contact
                                 </NavLink>
                             </li>
@@ -120,7 +120,7 @@ function  Navbar() {
                                 <NavLink
                                     to="/MemberShip"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
-                                >
+                                ><i className="fa fa-users"></i>
                                     MemberShip
                                 </NavLink>
                             </li>
@@ -128,7 +128,7 @@ function  Navbar() {
                                 <NavLink
                                     to="/Certification"
                                     className={({ isActive }) => (isActive ? 'active' : '')}
-                                >
+                                ><i className="fa fa-certificate"></i>
                                     Certification
                                 </NavLink>
                             </li>

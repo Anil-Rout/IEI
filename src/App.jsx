@@ -11,7 +11,7 @@ import Certification from './pages/Certification';
 import './App.css';
 
 function App() {
-  return (
+  return(
     <div className="app-container">
       <Navbar />
       <main className="main-content">

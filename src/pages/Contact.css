@@ -1,4 +1,5 @@
-/* Contact Page */
+
+ 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -13,7 +14,7 @@
 
 .contact-grid h2 {
   font-size: 1.5rem;
-  color: #1e3a8a;
+  color: #000000;
   margin-bottom: 10px;
 }
 
@@ -42,8 +43,8 @@
 }
 
 .contact-grid .btn {
-  background-color: #1e3a8a;
-  color: white;
+  background-color: #5bd1de;
+  color: rgb(0, 0, 0);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -51,5 +52,46 @@
 }
 
 .contact-grid .btn:hover {
-  background-color: #1e40af;
+  background-color: #3c96fd;
+}
+
+.text-rotate {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  position: relative;
+  vertical-align: middle;
+}
+
+.text-rotate-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-rotate-word {
+  display: inline-flex;
+}
+
+.text-rotate-element {
+  display: inline-block;
+}
+
+.text-rotate-space {
+  white-space: pre;
+}
+
+.rotate-blue {
+  animation: rotateBackground 2s infinite;
+  transition: background-color 0.3s ease, transform 0.3s ease;  
+}
+
+.rotate-blue:hover {  
+  transform: scale(1.05);  
 }

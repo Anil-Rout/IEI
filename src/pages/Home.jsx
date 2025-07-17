@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import SplitText from "./SplitText";
 
 function Home() {
+  const handleAnimationComplete = () => {
+  console.log('All letters have animated!');
+};
 const images = [
         '/eng1.jpg',
         '/eng2.jpg',
@@ -21,7 +25,12 @@ const images = [
           <section>
             <div className="container mx-auto">
               <div className="hero" style={{ backgroundImage: `url(${images[currentImage]})` }}>
-                <h1>Welcome to Institution of Engineers (India)</h1>
+                <h1><SplitText
+  text="Welcome To IEI"
+ className="text-white text-[3.5rem] font-bold"
+  onLetterAnimationComplete={handleAnimationComplete}
+
+/></h1>
                 <p>
                   The Institution of Engineers (India) is a premier professional body
                   fostering engineering excellence and innovation since 1920.
@@ -57,3 +66,10 @@ const images = [
     };
 
 export default Home;
+
+
+
+
+
+
+ 
