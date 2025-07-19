@@ -27,7 +27,7 @@
   z-index: 2;
 }
 .hero h1 {
-  font-size: 3rem; /* text-4xl */
+  font-size: 3.5rem; /* text-4xl */
   font-weight: 700; /* font-bold */
   margin-bottom: 1rem;
 }
@@ -38,7 +38,7 @@
 }
 .features {
   padding: 3rem 0;
-  background-color: #f9fafb; /* gray-100 */
+  background-color: #ffffff; /* gray-100 */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
@@ -49,6 +49,7 @@
   padding: 1.5rem;
   border-radius: 0.5rem; /* rounded-lg */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .feature-card h2 {
   font-size: 1.5rem; /* text-2xl */
@@ -60,7 +61,10 @@
   color: #4b5563; /* gray-700 */
   font-size: 1rem; /* text-base */
 }
-
+  .feature-card:hover {
+    box-shadow: 0 0 15px rgba(245, 144, 250, 0.5);
+    transform: scale(1.13);
+  }
 .div-head {
   font-size: 1.875rem;     
   font-weight: 700;             
@@ -70,6 +74,7 @@
 
 }
  
+
 /* Carousel wrapper */
 .carousel-container-wrapper {
   display: flex;
@@ -81,7 +86,7 @@
 .carousel-row {
   display: flex;
   flex-direction: row;
-  gap: 10px; /* Matches the GAP in Carousel.js */
+  gap: 430px; /* Matches the GAP in Carousel.js */
   justify-content: center; /* Center the carousels in the row */
   flex-wrap: nowrap; /* Prevent wrapping within a row */
 }

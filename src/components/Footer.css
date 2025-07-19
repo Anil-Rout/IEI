@@ -1,12 +1,25 @@
 .footer {
-  background-color: #1f2937;
+  background-color: #000000;
   color: white;
-  padding: 15px 0;
-  text-align: center;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.footer p {
-  margin-bottom: 10px;
+.logo-container {
+  height:70px;
+  align-items: center;
+  width:170px;
+}
+.footer .logo {
+  height: 100px;
+  width: 100px;
+}
+.logo-container p {
+  margin: 0;
+  font-size: 18px;
 }
 
 .footer a {
@@ -17,4 +30,48 @@
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.container {
+  flex: 1;
+  padding: 0 20px;
+  min-width: 300px;
+}
+
+.contact-info {
+  width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-left: auto;
+  text-align: left;
+  height:400px;
+}
+
+.contact-info h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.contact-info label {
+  display: block;
+  margin-top: 10px;
+}
+
+.contact-info input,
+.contact-info textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact-info button.btn {
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: #4e9feb;
+  color: white;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
 }

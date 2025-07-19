@@ -1,68 +1,34 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-// replace icons with your own if needed
-import { FiCircle, FiCode, FiFileText, FiLayers, FiLayout } from "react-icons/fi";
-
 import "./Carousel.css";
 
-const DEFAULT_ITEMS = [
-  {
-    title: "Text Animations",
-    description: "Cool text animations for your projects.",
-    id: 1,
-    icon: <FiFileText className="carousel-icon" />,
-  },
-  {
-    title: "Animations",
-    description: "Smooth animations for your projects.",
-    id: 2,
-    icon: <FiCircle className="carousel-icon" />,
-  },
-  {
-    title: "Components",
-    description: "Reusable components for your projects.",
-    id: 3,
-    icon: <FiLayers className="carousel-icon" />,
-  },
-  {
-    title: "Backgrounds",
-    description: "Beautiful backgrounds and patterns for your projects.",
-    id: 4,
-    icon: <FiLayout className="carousel-icon" />,
-  },
-  {
-    title: "Common UI",
-    description: "Common UI components are coming soon!",
-    id: 5,
-    icon: <FiCode className="carousel-icon" />,
-  },
-];
-
-const DRAG_BUFFER = 0;
+const DRAG_BUFFER = 50; // Increased for better drag sensitivity
 const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
 const SPRING_OPTIONS = { type: "spring", stiffness: 300, damping: 30 };
 
 export default function Carousel({
-  items = DEFAULT_ITEMS,
+  images = [], // Default to empty array for images
   baseWidth = 300,
-  autoplay = false,
+  autoplay = true,
   autoplayDelay = 3000,
-  pauseOnHover = false,
-  loop = false,
-  round = false,
+  pauseOnHover = true,
+  loop = true,
+  round = true,
 }) {
   const containerPadding = 16;
   const itemWidth = baseWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
 
-  const carouselItems = loop ? [...items, items[0]] : items;
+  const carouselImages = loop ? [...images, images[0]] : images;
   const [currentIndex, setCurrentIndex] = useState(0);
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
 
   const containerRef = useRef(null);
+
+  // Handle pause on hover
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
       const container = containerRef.current;
@@ -77,14 +43,15 @@ export default function Carousel({
     }
   }, [pauseOnHover]);
 
+  // Handle autoplay
   useEffect(() => {
     if (autoplay && (!pauseOnHover || !isHovered)) {
       const timer = setInterval(() => {
         setCurrentIndex((prev) => {
-          if (prev === items.length - 1 && loop) {
+          if (prev === images.length - 1 && loop) {
             return prev + 1;
           }
-          if (prev === carouselItems.length - 1) {
+          if (prev === carouselImages.length - 1) {
             return loop ? 0 : prev;
           }
           return prev + 1;
@@ -92,20 +59,11 @@ export default function Carousel({
       }, autoplayDelay);
       return () => clearInterval(timer);
     }
-  }, [
-    autoplay,
-    autoplayDelay,
-    isHovered,
-    loop,
-    items.length,
-    carouselItems.length,
-    pauseOnHover,
-  ]);
+  }, [autoplay, autoplayDelay, isHovered, loop, images.length, carouselImages.length, pauseOnHover]);
 
-  const effectiveTransition = isResetting ? { duration: 0 } : SPRING_OPTIONS;
-
+  // Handle loop reset
   const handleAnimationComplete = () => {
-    if (loop && currentIndex === carouselItems.length - 1) {
+    if (loop && currentIndex === carouselImages.length - 1) {
       setIsResetting(true);
       x.set(0);
       setCurrentIndex(0);
@@ -113,102 +71,89 @@ export default function Carousel({
     }
   };
 
+  // Handle drag end
   const handleDragEnd = (_, info) => {
     const offset = info.offset.x;
     const velocity = info.velocity.x;
     if (offset < -DRAG_BUFFER || velocity < -VELOCITY_THRESHOLD) {
-      if (loop && currentIndex === items.length - 1) {
-        setCurrentIndex(currentIndex + 1);
-      } else {
-        setCurrentIndex((prev) => Math.min(prev + 1, carouselItems.length - 1));
-      }
+      setCurrentIndex((prev) => Math.min(prev + 1, carouselImages.length - 1));
     } else if (offset > DRAG_BUFFER || velocity > VELOCITY_THRESHOLD) {
-      if (loop && currentIndex === 0) {
-        setCurrentIndex(items.length - 1);
-      } else {
-        setCurrentIndex((prev) => Math.max(prev - 1, 0));
-      }
+      setCurrentIndex((prev) => Math.max(prev - 1, 0));
     }
   };
 
   const dragProps = loop
     ? {}
     : {
-      dragConstraints: {
-        left: -trackItemOffset * (carouselItems.length - 1),
-        right: 0,
-      },
-    };
+        dragConstraints: {
+          left: -trackItemOffset * (carouselImages.length - 1),
+          right: 0,
+        },
+      };
+
+  // Error handling for empty images
+  if (!images.length) {
+    console.warn("Carousel: No images provided");
+    return <div className="text-center text-red-500">No images available</div>;
+  }
 
   return (
     <div
       ref={containerRef}
-      className={`carousel-container ${round ? "round" : ""}`}
-      style={{
-        width: `${baseWidth}px`,
-        ...(round && { height: `${baseWidth}px`, borderRadius: "50%" }),
-      }}
+      className={`carousel-container ${round ? "rounded-full" : "rounded-lg"} bg-white shadow-md overflow-hidden`}
+      style={{ width: `${baseWidth}px`, height: round ? `${baseWidth}px` : "200px" }}
     >
       <motion.div
-        className="carousel-track"
+        className="carousel-track flex"
         drag="x"
         {...dragProps}
         style={{
-          width: itemWidth,
           gap: `${GAP}px`,
-          perspective: 1000,
-          perspectiveOrigin: `${currentIndex * trackItemOffset + itemWidth / 2}px 50%`,
           x,
         }}
         onDragEnd={handleDragEnd}
         animate={{ x: -(currentIndex * trackItemOffset) }}
-        transition={effectiveTransition}
+        transition={isResetting ? { duration: 0 } : SPRING_OPTIONS}
         onAnimationComplete={handleAnimationComplete}
       >
-        {carouselItems.map((item, index) => {
+        {carouselImages.map((image, index) => {
           const range = [
             -(index + 1) * trackItemOffset,
             -index * trackItemOffset,
             -(index - 1) * trackItemOffset,
           ];
           const outputRange = [90, 0, -90];
-          // eslint-disable-next-line react-hooks/rules-of-hooks
           const rotateY = useTransform(x, range, outputRange, { clamp: false });
           return (
             <motion.div
               key={index}
-              className={`carousel-item ${round ? "round" : ""}`}
+              className={`carousel-item ${round ? "rounded-full" : "rounded-lg"} overflow-hidden`}
               style={{
                 width: itemWidth,
                 height: round ? itemWidth : "100%",
-                rotateY: rotateY,
-                ...(round && { borderRadius: "50%" }),
+                rotateY,
               }}
-              transition={effectiveTransition}
+              transition={SPRING_OPTIONS}
             >
-              <div className={`carousel-item-header ${round ? "round" : ""}`}>
-                <span className="carousel-icon-container">
-                  {item.icon}
-                </span>
-              </div>
-              <div className="carousel-item-content">
-                <div className="carousel-item-title">{item.title}</div>
-                <p className="carousel-item-description">{item.description}</p>
-              </div>
+              <img
+                src={image}
+                alt={`Slide ${index + 1}`}
+                className={`w-full h-full object-cover ${round ? "rounded-full" : "rounded-lg"}`}
+                onError={() => console.error(`Failed to load image: ${image}`)}
+              />
             </motion.div>
           );
         })}
       </motion.div>
-      <div className={`carousel-indicators-container ${round ? "round" : ""}`}>
-        <div className="carousel-indicators">
-          {items.map((_, index) => (
+      <div className="carousel-indicators-container">
+        <div className="carousel-indicators flex justify-center gap-2 mt-2">
+          {images.map((_, index) => (
             <motion.div
               key={index}
-              className={`carousel-indicator ${currentIndex % items.length === index ? "active" : "inactive"
-                }`}
-              animate={{
-                scale: currentIndex % items.length === index ? 1.2 : 1,
-              }}
+              className={`carousel-indicator w-2 h-2 rounded-full cursor-pointer ${
+                currentIndex % images.length === index ? "bg-blue-900" : "bg-gray-300"
+              }`}
+              animate={{ scale: currentIndex % images.length === index ? 1.2 : 1 }}
               onClick={() => setCurrentIndex(index)}
               transition={{ duration: 0.15 }}
             />

@@ -1,6 +1,6 @@
 
 import './Contact.css';
-import RotatingText from './RotatingText';
+import RotatingText from '../../public/RotatingText';
 
 function Contact() {
   return (
