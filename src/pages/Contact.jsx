@@ -2,8 +2,10 @@
 import './Contact.css';
 import RotatingText from '../../public/RotatingText';
 
+
 function Contact() {
   return (
+    
     <div className="container page">
       <h1><strong>Contact Us</strong></h1>
       <div className="contact-grid">

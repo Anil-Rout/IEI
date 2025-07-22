@@ -9,10 +9,12 @@ import Contact from './pages/Contact';
 import MemberShip from './pages/MemberShip';
 import Certification from './pages/Certification';
 import './App.css';
-
+import SyncUser from './components/SyncUser';
+// import AdminDashboard from './pages/AdminDashboard';
 function App() {
   return(
     <div className="app-container">
+       <SyncUser />
       <Navbar />
       <main className="main-content">
         <Routes>
@@ -23,6 +25,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/MemberShip" element={<MemberShip />} />
           <Route path="/Certification" element={<Certification />} />
+          {/* <Route path="/AdminDashboard" element={<AdminDashboard />} /> */}
         </Routes>
       </main>
       <Footer />
