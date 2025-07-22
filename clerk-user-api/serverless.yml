@@ -1,0 +1,37 @@
+service: clerk-user-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+  environment:
+    USER_PROFILE_TABLE: UserProfileTable
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:PutItem
+      Resource:
+        - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.USER_PROFILE_TABLE}
+
+functions:
+  syncUser:
+    handler: handler.syncUser
+    events:
+      - http:
+          path: sync-user
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    UserProfileTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.USER_PROFILE_TABLE}
+        AttributeDefinitions:
+          - AttributeName: userId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: userId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
