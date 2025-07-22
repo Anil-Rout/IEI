@@ -4,6 +4,7 @@ import axios from "axios";
 
 const SyncUser = () => {
   const { isSignedIn, user, isLoaded } = useUser();
+  
 
   useEffect(() => {
     if (!isLoaded || !isSignedIn || !user || !user.primaryEmailAddress) return;

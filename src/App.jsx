@@ -9,8 +9,9 @@ import Contact from './pages/Contact';
 import MemberShip from './pages/MemberShip';
 import Certification from './pages/Certification';
 import './App.css';
-import SyncUser from './components/SyncUser';
+import SyncUser from './api/SyncUser';
 // import AdminDashboard from './pages/AdminDashboard';
+
 function App() {
   return(
     <div className="app-container">
