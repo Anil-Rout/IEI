@@ -10,7 +10,7 @@ import { fetchUser } from '../api/fetchUser';
 
 
 function  Navbar() {
-    const { user } = useUser();
+const { user } = useUser();
 const [userType, setUserType] = useState(null);
 
 useEffect(() => {
@@ -18,7 +18,7 @@ const getUserType = async () => {
     if (user?.id) {
     try {
         const data = await fetchUser(user.id);
-        console.log('User data:', data.type);
+        console.log(" userType from DynamoDB:", data.type);
         setUserType(data.type);
     } catch (error) {
         console.error('Error fetching user type:', error);
@@ -87,7 +87,7 @@ getUserType();
                                         <UserButton />
                                     </SignedIn>
                                     <SignedOut>
-                                        <SignInButton mode="modal">
+                                        <SignInButton mode="modal" afterSignInUrl="/">
                                             <NavLink 
                                             className={({ isActive }) => (isActive ? 'active' : '')}>
                                                     Sign In

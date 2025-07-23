@@ -10,7 +10,8 @@ import MemberShip from './pages/MemberShip';
 import Certification from './pages/Certification';
 import './App.css';
 import SyncUser from './api/SyncUser';
-// import AdminDashboard from './pages/AdminDashboard';
+import AdminDashboard from './pages/AdminDashboard';
+// import { fetchUser } from './api/fetchUser';
 
 function App() {
   return(
@@ -26,7 +27,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/MemberShip" element={<MemberShip />} />
           <Route path="/Certification" element={<Certification />} />
-          {/* <Route path="/AdminDashboard" element={<AdminDashboard />} /> */}
+          <Route path="/AdminDashboard" element={<AdminDashboard />} />
         </Routes>
       </main>
       <Footer />
