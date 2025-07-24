@@ -62,7 +62,7 @@
     font-size: 1rem; /* text-base */
   }
     .feature-card:hover {
-      box-shadow: 0 0 15px rgba(245, 144, 250, 0.5);
+      /* box-shadow: 0 0 15px rgba(245, 144, 250, 0.5); */
       transform: scale(1.13);
     }
   .div-head {

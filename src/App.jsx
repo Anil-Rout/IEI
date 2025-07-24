@@ -10,6 +10,7 @@ import MemberShip from './pages/MemberShip';
 import Certification from './pages/Certification';
 import './App.css';
 import SyncUser from './api/SyncUser';
+import CreateEvent from './api/CreateEvent';
 import AdminDashboard from './pages/AdminDashboard';
 // import { fetchUser } from './api/fetchUser';
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/MemberShip" element={<MemberShip />} />
           <Route path="/Certification" element={<Certification />} />
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
+          <Route path="/createEvent" element={<CreateEvent />} />
         </Routes>
       </main>
       <Footer />

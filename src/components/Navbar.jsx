@@ -9,6 +9,7 @@ import { fetchUser } from '../api/fetchUser';
 
 
 
+
 function  Navbar() {
 const { user } = useUser();
 const [userType, setUserType] = useState(null);
@@ -48,7 +49,7 @@ getUserType();
                             <ul className="nav-links">
                                 <li>
                                     <a className="btn btn-primary" href="IEI-RegistrationForMembApp.aspx" target="_self">
-                                        <i class="fas fa-user-plus"></i> Be a Member
+                                        <i className="fas fa-user-plus"></i> Be a Member
                                     </a>
                                 </li>
                                 <li>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import './AdminDashboard.css';
 import { useClerk } from "@clerk/clerk-react";
 
+
 function AdminDashboard() {
 
 
@@ -31,18 +32,27 @@ function AdminDashboard() {
           <h2>IEI Admin</h2>
         </div>
         <nav className="sidebar-nav">
-          <NavLink to="/AdminDashboard" className="sidebar-link" activeClassName="active">
-            Dashboard
-          </NavLink>
-          <NavLink to="/Events" className="sidebar-link" activeClassName="active">
-            Events
-          </NavLink>
-          <NavLink to="/admin/users" className="sidebar-link" activeClassName="active">
-            Users
-          </NavLink>
-          <NavLink to="/" className="sidebar-link">
-            Back to Home
-          </NavLink>
+            <NavLink
+              to="/Events"
+              className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+            >
+              Events
+            </NavLink>
+
+            <NavLink
+              to="/admin/users"
+              className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+            >
+              Users
+            </NavLink>
+
+            <NavLink
+              to="/"
+              className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+            >
+              Back to Home
+            </NavLink>
+
         </nav>
       </aside>
       <div className="main-content">
@@ -65,12 +75,14 @@ function AdminDashboard() {
           >
             <h3>Create Event</h3>
             <p>Schedule a new event for the IEI community.</p>
-            <button
-              onClick={() => handleButtonClick('Create Event')}
-              aria-label="Create a new event"
-            >
-              Create
-            </button>
+                <NavLink
+                  to="/CreateEvent"
+                  className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+                >
+                <button aria-label="Create a new event">
+                  Create
+                </button>
+              </NavLink>
           </motion.div>
           <motion.div
             className="action-card"
