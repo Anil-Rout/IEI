@@ -1,0 +1,119 @@
+.edit-event-form {
+max-width: 600px;
+margin: 2rem auto;
+background-color: #ffffff;
+padding: 2rem;
+border-radius: 0.5rem;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+font-family: 'Arial', sans-serif;
+}
+
+.edit-event-form h2 {
+font-size: 1.75rem;
+font-weight: 700;
+color: #1e3a8a;
+text-align: center;
+margin-bottom: 1.5rem;
+}
+
+.edit-event-form form {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.edit-event-form input,
+.edit-event-form textarea {
+padding: 0.75rem;
+border: 1px solid #1e3a8a;
+border-radius: 0.25rem;
+font-size: 1rem;
+background-color: #f9fafb;
+color: #1e3a8a;
+transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.edit-event-form input:focus,
+.edit-event-form textarea:focus {
+outline: none;
+border-color: #2563eb;
+box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+transform: scale(1.02);
+}
+
+.edit-event-form textarea {
+min-height: 120px;
+resize: vertical;
+}
+
+.edit-event-form button {
+background-color: #1e3a8a;
+color: #ffffff;
+border: none;
+padding: 0.75rem 1.5rem;
+border-radius: 0.25rem;
+font-size: 1rem;
+font-weight: 500;
+cursor: pointer;
+transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.edit-event-form button:hover {
+background-color: #2563eb;
+transform: scale(1.05);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.edit-event-form p {
+margin-top: 1rem;
+font-size: 0.9rem;
+text-align: center;
+}
+
+.edit-event-form p:empty {
+display: none;
+}
+
+.edit-event-form p[class*="✅"] {
+color: #15803d;
+}
+
+.edit-event-form p[class*="❌"] {
+color: #dc2626;
+}
+
+/* Laptop screens (1024px - 1200px) */
+@media (max-width: 1200px) {
+.edit-event-form {
+max-width: 500px;
+padding: 1.5rem;
+}
+
+.edit-event-form h2 {
+font-size: 1.5rem;
+}
+}
+
+/* Mobile screens (<768px) */
+@media (max-width: 768px) {
+.edit-event-form {
+max-width: 100%;
+margin: 1rem;
+padding: 1rem;
+}
+
+.edit-event-form h2 {
+font-size: 1.25rem;
+}
+
+.edit-event-form input,
+.edit-event-form textarea {
+font-size: 0.9rem;
+padding: 0.5rem;
+}
+
+.edit-event-form button {
+padding: 0.5rem 1rem;
+font-size: 0.9rem;
+}
+}

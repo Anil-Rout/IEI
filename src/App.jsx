@@ -12,7 +12,8 @@ import './App.css';
 import SyncUser from './api/SyncUser';
 import CreateEvent from './api/CreateEvent';
 import AdminDashboard from './pages/AdminDashboard';
-// import { fetchUser } from './api/fetchUser';
+import EditEvent from './api/EditEvent';
+import PostEvent from './api/PostEvent';
 
 function App() {
   return(
@@ -30,6 +31,8 @@ function App() {
           <Route path="/Certification" element={<Certification />} />
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
           <Route path="/createEvent" element={<CreateEvent />} />
+          <Route path="/EditEvent" element={<EditEvent />} />
+          <Route path="/PostEvent" element={<PostEvent />} />
         </Routes>
       </main>
       <Footer />

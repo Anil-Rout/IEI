@@ -33,6 +33,12 @@ function AdminDashboard() {
         </div>
         <nav className="sidebar-nav">
             <NavLink
+              to="/AdminDashboard"
+              className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+            >
+              Dashboard
+            </NavLink>
+            <NavLink
               to="/Events"
               className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
             >
@@ -40,7 +46,7 @@ function AdminDashboard() {
             </NavLink>
 
             <NavLink
-              to="/admin/users"
+              to="/AdminDashboard/users"
               className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
             >
               Users
@@ -93,12 +99,14 @@ function AdminDashboard() {
           >
             <h3>Edit Event</h3>
             <p>Modify existing events to keep them up-to-date.</p>
-            <button
-              onClick={() => handleButtonClick('Edit Event')}
-              aria-label="Edit an existing event"
-            >
-              Edit
-            </button>
+              <NavLink
+                  to="/EditEvent"
+                  className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+                >
+                <button aria-label=" a new event">
+                  Edit
+                </button>
+              </NavLink>
           </motion.div>
           <motion.div
             className="action-card"
@@ -109,12 +117,14 @@ function AdminDashboard() {
           >
             <h3>Post Event</h3>
             <p>Share event details with members and the public.</p>
-            <button
-              onClick={() => handleButtonClick('Post Event')}
-              aria-label="Post an event"
-            >
-              post
-            </button>
+              <NavLink
+                  to="/PostEvent"
+                  className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+                >
+                <button aria-label=" a new event">
+                  Post
+                </button>
+              </NavLink>
           </motion.div>
           <motion.div
             className="action-card"
