@@ -1,7 +1,9 @@
+import { useUser } from "@clerk/clerk-react";
 import { useState } from "react";
 import './CreateEvent.css';
 
 function CreateEvent() {
+  const { user } = useUser();  // ✅ Get Clerk user
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
@@ -10,7 +12,17 @@ function CreateEvent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const eventData = { title, description, date };
+    if (!user) {
+      setMessage("You must be signed in to create an event.");
+      return;
+    }
+
+    const eventData = {
+      title,
+      description,
+      date,
+      createdBy: user.id, // ✅ Include Clerk user ID
+    };
 
     const response = await fetch("https://75fslghrrk.execute-api.ap-south-1.amazonaws.com/dev/create-event", {
       method: "POST",
@@ -21,9 +33,9 @@ function CreateEvent() {
     const result = await response.json();
 
     if (response.ok) {
-      setMessage(" Event created successfully!");
+      setMessage("Event created successfully!");
     } else {
-      setMessage(" Failed to create event: " + result.message);
+      setMessage("Failed to create event: " + result.message);
     }
   };
 

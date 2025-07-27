@@ -135,12 +135,14 @@ function AdminDashboard() {
           >
             <h3>History you made</h3>
             <p>you can find history here</p>
-            <button
-              onClick={() => handleButtonClick('Post Event')}
-              aria-label="Post an event"
-            >
-              History
-            </button>
+            <NavLink
+                  to="/HistoryYouMade"
+                  className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+                >
+                <button aria-label=" a new event">
+                  History
+                </button>
+              </NavLink>
           </motion.div>
         </section>
       </div>

@@ -14,7 +14,7 @@ import CreateEvent from './api/CreateEvent';
 import AdminDashboard from './pages/AdminDashboard';
 import EditEvent from './api/EditEvent';
 import PostEvent from './api/PostEvent';
-
+import HistoryYouMade from './api/HistoryYouMade';
 function App() {
   return(
     <div className="app-container">
@@ -33,6 +33,7 @@ function App() {
           <Route path="/createEvent" element={<CreateEvent />} />
           <Route path="/EditEvent" element={<EditEvent />} />
           <Route path="/PostEvent" element={<PostEvent />} />
+          <Route path="/HistoryYouMade" element={<HistoryYouMade />} />
         </Routes>
       </main>
       <Footer />
