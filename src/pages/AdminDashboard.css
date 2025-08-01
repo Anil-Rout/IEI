@@ -52,6 +52,7 @@ transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 color:white;
 }
 
+
 .main-content {
 flex: 1;
 padding: 2rem;
@@ -115,6 +116,7 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 border: 1px solid transparent;
 text-align: center;
 transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+border-color: #5aeb25;
 }
 
 .action-card h3 {
@@ -160,6 +162,25 @@ padding: 1.5rem;
 font-size: 1.75rem;
 }
 }
+
+.events-sub-nav {
+margin-bottom: 1rem;
+}
+
+.events-sub-nav button {
+margin-right: 1rem;
+padding: 8px 12px;
+background-color: #eee;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.events-sub-nav button.active {
+background-color: #007bff;
+color: white;
+}
+
 
 /* Mobile screens (<768px) */
 @media (max-width: 768px) {

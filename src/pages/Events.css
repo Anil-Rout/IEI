@@ -1,17 +1,111 @@
-.event-card {
-  background-color: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
+.event-list {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9fafb;
+  font-family: 'Arial', sans-serif;
 }
 
-.event-card h2 {
-  font-size: 1.25rem;
+.event-list h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
   color: #1e3a8a;
-  margin-bottom: 5px;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.event-card p {
+.event-list p.loading,
+.event-list p.no-events {
+  font-size: 1rem;
   color: #4b5563;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.event-list p.error {
+  font-size: 1rem;
+  color: #dc2626;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.event-list ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.event-list li {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.event-list li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-color: #5aeb25;
+}
+
+.event-list li h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.event-list li p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0.5rem 0;
+}
+
+/* Laptop screens (1024px - 1200px) */
+@media (max-width: 1200px) {
+  .event-list {
+    max-width: 900px;
+    padding: 1.5rem;
+  }
+
+  .event-list h2 {
+    font-size: 1.5rem;
+  }
+
+  .event-list ul {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* Mobile screens (<768px) */
+@media (max-width: 768px) {
+  .event-list {
+    max-width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .event-list h2 {
+    font-size: 1.25rem;
+  }
+
+  .event-list ul {
+    grid-template-columns: 1fr;
+  }
+
+  .event-list li {
+    padding: 1rem;
+  }
+
+  .event-list li h3 {
+    font-size: 1.1rem;
+  }
+
+  .event-list li p {
+    font-size: 0.85rem;
+  }
 }

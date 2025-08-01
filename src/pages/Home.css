@@ -48,6 +48,7 @@
     background-color: #fff;
     padding: 1.5rem;
     border-radius: 0.5rem; /* rounded-lg */
+    border: 1px solid transparent;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -62,7 +63,7 @@
     font-size: 1rem; /* text-base */
   }
     .feature-card:hover {
-      /* box-shadow: 0 0 15px rgba(245, 144, 250, 0.5); */
+      border-color: #5aeb25;
       transform: scale(1.13);
     }
   .div-head {
