@@ -1,0 +1,130 @@
+service: clerk-user-api
+
+frameworkVersion: '3'
+
+custom:
+  tableName: UserProfileTable
+  eventTableName: EventTable
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+  environment:
+    USER_PROFILE_TABLE: ${self:custom.tableName}
+    EVENT_TABLE: ${self:custom.eventTableName}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+        - dynamodb:UpdateItem
+        - dynamodb:Query 
+        - dynamodb:Scan           
+      Resource:
+        - arn:aws:dynamodb:${self:provider.region}:114642828991:table/${self:custom.tableName}
+        - arn:aws:dynamodb:${self:provider.region}:114642828991:table/${self:custom.eventTableName}
+        - arn:aws:dynamodb:${self:provider.region}:114642828991:table/${self:custom.eventTableName}/index/createdBy-index  
+
+functions:
+  syncUser:
+    handler: functions/admin/syncUser.syncUser
+    events:
+      - http:
+          path: sync-user
+          method: post
+          cors: true
+
+  fetchUser:
+    handler: functions/admin/fetchUser.fetchUser
+    events:
+      - http:
+          path: fetch-user
+          method: post
+          cors: true
+  
+  getAllUsers:
+    handler: functions/admin/getAllUsers.getAllUsers
+    events:
+      - http:
+          path: get-all-getAllUsers
+          method: get
+          cors: true
+  
+  createEvent:
+    handler: functions/user/createEvent.createEvent
+    events:
+      - http:
+          path: create-event
+          method: post
+          cors: true
+
+  editEvent:
+    handler: functions/user/editEvent.editEvent
+    events:
+      - http:
+          path: edit-event
+          method: post
+          cors: true
+  
+  postEvent:
+    handler: functions/user/postEvent.postEvent
+    events:
+      - http:
+          path: post-event
+          method: post
+          cors: true  
+  
+  getAdminEvents:
+    handler: functions/user/getAdminEvents.getAdminEvents
+    events:
+      - http:
+          path: get-admin-events
+          method: get
+          cors: true
+  
+  getAllEvents:
+    handler: functions/user/getAllEvents.getAllEvents
+    events:
+      - http:
+          path: get-all-events
+          method: get
+          cors: true
+
+plugins:
+  - serverless-offline
+
+resources:
+  Resources:
+    UserProfileTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.tableName}
+        AttributeDefinitions:
+          - AttributeName: userId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: userId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    
+    EventTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.eventTableName}
+        AttributeDefinitions:
+          - AttributeName: eventId
+            AttributeType: S
+          - AttributeName: createdBy
+            AttributeType: S
+        KeySchema:
+          - AttributeName: eventId
+            KeyType: HASH
+        GlobalSecondaryIndexes:
+          - IndexName: createdBy-index
+            KeySchema:
+              - AttributeName: createdBy
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+        BillingMode: PAY_PER_REQUEST

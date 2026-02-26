@@ -1,48 +1,22 @@
 {
-  "name": "my-project",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "clerk-user-api",
+  "version": "1.0.0",
+  "description": "Simple Clerk + AWS Lambda API to sync user data into DynamoDB",
+  "main": "handler.js",
+  "type": "commonjs",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "start": "sls offline",
+    "deploy": "sls deploy",
+    "invoke": "sls invoke local --function syncUser --path event.json"
   },
+  "author": "Anil Rout",
+  "license": "MIT",
   "dependencies": {
-    "@clerk/clerk-react": "^5.33.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@fortawesome/fontawesome-free": "^6.7.2",
-    "@material-tailwind/react": "^2.1.10",
-    "@mui/icons-material": "^7.3.1",
-    "@mui/material": "^7.2.0",
-    "axios": "^1.10.0",
-    "bootstrap": "^5.3.7",
-    "framer-motion": "^12.23.7",
-    "gsap": "^3.13.0",
-    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0",
-    "react-icons": "^5.5.0",
-    "react-router-dom": "^7.7.0",
-    "split-type": "^0.3.4"
+    "@aws-sdk/client-dynamodb": "^3.585.0",
+    "aws-sdk": "^2.1692.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.25.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react": "^4.4.1",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.25.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "globals": "^16.0.0",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.17",
-    "vite": "^6.3.5"
-  },
-  "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
+    "serverless-offline": "^12.0.4"
   }
 }
