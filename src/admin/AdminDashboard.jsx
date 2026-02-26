@@ -2,18 +2,20 @@ import { motion } from 'framer-motion';
 import './AdminDashboard.css';
 import { useClerk } from "@clerk/clerk-react";
 import { useState } from 'react';
-import CreateEvent from '../api/CreateEvent';  // make sure this is a modal component
-import EditEvent from '../api/EditEvent';
-import PostEvent from '../api/PostEvent';
-import HistoryYouMade from '../api/HistoryYouMade';
+import CreateEvent from './CreateEvent';
+import EditEvent from './EditEvent';
+import PostEvent from './PostEvent';
+import HistoryYouMade from './HistoryYouMade';
+import AdminUsers from './user';
 
 function AdminDashboard() {
-  // Modal states for Create and Edit Events
+  // Modal states
   const [isCreateEventOpen, setIsCreateEventOpen] = useState(false);
   const [isEditEventOpen, setIsEditEventOpen] = useState(false);
   const [isPostEventOpen, setIsPostEventOpen] = useState(false);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
-  // Tab state for main navigation and events sub-navigation
+
+  // Navigation tabs
   const [activeTab, setActiveTab] = useState('dashboard');
   const [eventsView, setEventsView] = useState('list');
 
@@ -111,7 +113,7 @@ function AdminDashboard() {
               >
                 <h3>Post Event</h3>
                 <p>Share event details with members and the public.</p>
-                <button onClick={()=> setIsPostEventOpen(true)}>Post</button>
+                <button onClick={() => setIsPostEventOpen(true)}>Post</button>
               </motion.div>
 
               <motion.div
@@ -123,7 +125,7 @@ function AdminDashboard() {
               >
                 <h3>History you made</h3>
                 <p>You can find history here</p>
-                <button onClick={()=>setIsHistoryOpen(true)}>History</button>
+                <button onClick={() => setIsHistoryOpen(true)}>History</button>
               </motion.div>
             </>
           )}
@@ -131,7 +133,6 @@ function AdminDashboard() {
           {/* Events Tab */}
           {activeTab === 'events' && (
             <div className="tab-content">
-              {/* Sub-tab buttons for Events */}
               <div className="events-sub-nav">
                 <button onClick={() => setEventsView('list')} className={eventsView === 'list' ? 'active' : ''}>
                   All Events
@@ -144,23 +145,18 @@ function AdminDashboard() {
                 </button>
               </div>
 
-              {/* Sub-tab content for Events */}
               {eventsView === 'list' && (
                 <div>
                   <h2>All Events</h2>
                   <p>[Table or list of events goes here]</p>
                 </div>
               )}
-
               {eventsView === 'create' && (
                 <div>
                   <h2>Create New Event</h2>
                   <p>[Event creation form goes here]</p>
-                  {/* Example: If you want the modal style form inline, you could render it directly.
-                      Alternatively, you could have a button that triggers the CreateEvent modal. */}
                 </div>
               )}
-
               {eventsView === 'drafts' && (
                 <div>
                   <h2>Draft Events</h2>
@@ -174,29 +170,17 @@ function AdminDashboard() {
           {activeTab === 'users' && (
             <div className="tab-content">
               <h2>All Users</h2>
-              <p>[User management content goes here]</p>
+              <AdminUsers />
             </div>
           )}
         </section>
       </div>
 
       {/* Modals */}
-      <CreateEvent
-        isOpen={isCreateEventOpen}
-        onClose={() => setIsCreateEventOpen(false)}
-      />
-      <EditEvent
-        isOpen={isEditEventOpen}
-        onClose={() => setIsEditEventOpen(false)}
-      />
-      <PostEvent
-        isOpen={isPostEventOpen}
-        onClose={()=> setIsPostEventOpen(false)}
-        />
-      <HistoryYouMade
-        isOpen={isHistoryOpen}
-        onClose={() => setIsHistoryOpen(false)}
-        />
+      <CreateEvent isOpen={isCreateEventOpen} onClose={() => setIsCreateEventOpen(false)} />
+      <EditEvent isOpen={isEditEventOpen} onClose={() => setIsEditEventOpen(false)} />
+      <PostEvent isOpen={isPostEventOpen} onClose={() => setIsPostEventOpen(false)} />
+      <HistoryYouMade isOpen={isHistoryOpen} onClose={() => setIsHistoryOpen(false)} />
     </div>
   );
 }

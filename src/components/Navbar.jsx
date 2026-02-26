@@ -5,7 +5,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-reac
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import React, { useEffect, useState } from 'react';
 import { useUser } from '@clerk/clerk-react';
-import { fetchUser } from '../api/fetchUser';
+import { fetchUser } from '../admin/fetchUser';
 
 
 

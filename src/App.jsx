@@ -9,12 +9,12 @@ import Contact from './pages/Contact';
 import MemberShip from './pages/MemberShip';
 import Certification from './pages/Certification';
 import './App.css';
-import SyncUser from './api/SyncUser';
-import CreateEvent from './api/CreateEvent';
-import AdminDashboard from './pages/AdminDashboard';
-import EditEvent from './api/EditEvent';
-import PostEvent from './api/PostEvent';
-import HistoryYouMade from './api/HistoryYouMade';
+import SyncUser from './admin/SyncUser';
+import CreateEvent from './admin/CreateEvent';
+import AdminDashboard from './admin/AdminDashboard';
+import EditEvent from './admin/EditEvent';
+import PostEvent from './admin/PostEvent';
+import HistoryYouMade from './admin/HistoryYouMade';
 function App() {
   return(
     <div className="app-container">
